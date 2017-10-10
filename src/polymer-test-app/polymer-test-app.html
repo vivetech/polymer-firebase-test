@@ -1,0 +1,49 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-auth.html">
+
+<dom-module id="polymer-test-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+
+    <firebase-app api-key="AIzaSyAp5Q0QjlNwZeegiZXRhdYzhqfYzwfHUuQ"
+	auth-domain="test-b2837.firebaseapp.com"
+	database-url="https://test-b2837.firebaseio.com"
+        project-id="test-b2837"
+    	storage-bucket="test-b2837.appspot.com"
+    	messaging-sender-id="688437278778">
+	</firebase-app>
+
+    <firebase-auth provider="google" user="{{user}}"></firebase-auth>
+
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PolymerTestApp extends Polymer.Element {
+      static get is() { return 'polymer-test-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'polymer-test-app'
+          },
+          user: {
+            type: Object, notify: true
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PolymerTestApp.is, PolymerTestApp);
+  </script>
+</dom-module>

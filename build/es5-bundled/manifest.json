@@ -1,0 +1,6 @@
+{
+  "name": "polymer-test",
+  "short_name": "polymer-test",
+  "start_url": "/",
+  "display": "standalone"
+}
